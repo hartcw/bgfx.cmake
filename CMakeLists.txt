@@ -65,14 +65,23 @@ if( BGFX_INSTALL )
 	# install bx
 	install( TARGETS bx DESTINATION lib )
 	install( DIRECTORY ${BX_DIR}/include DESTINATION . )
+	if( MSVC )
+		install( FILES ${PROJECT_BINARY_DIR}/CMakeFiles/bx.dir/bx.pdb DESTINATION lib CONFIGURATIONS Debug RelWithDebInfo )
+	endif()
 
 	# install bimg
 	install( TARGETS bimg DESTINATION lib )
 	install( DIRECTORY ${BIMG_DIR}/include DESTINATION . )
+	if( MSVC )
+		install( FILES ${PROJECT_BINARY_DIR}/CMakeFiles/bimg.dir/bimg.pdb DESTINATION lib CONFIGURATIONS Debug RelWithDebInfo )
+	endif()
 
 	# install bgfx
 	install( TARGETS bgfx DESTINATION lib )
 	install( DIRECTORY ${BGFX_DIR}/include DESTINATION . )
+	if( MSVC )
+		install( FILES ${PROJECT_BINARY_DIR}/CMakeFiles/bgfx.dir/bgfx.pdb DESTINATION lib CONFIGURATIONS Debug RelWithDebInfo )
+	endif()
 
 	# install tools
 	if( BGFX_BUILD_TOOLS )
